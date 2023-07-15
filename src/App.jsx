@@ -425,6 +425,8 @@ Clicking the button again will trigger the handleShowAddFriend function, which u
       {/* --------------------------------------------------------------------------------------------- */}
       </div>
 {/* ----------------------------------------------------------------------------------------- */}
+
+{/* the conditional rendering statement {selectedFriend && ...} conditionally renders the FormSplitBill component based on the truthiness of the selectedFriend state variable. It allows the component to be displayed or hidden dynamically depending on the condition. */}
       {selectedFriend && (
         <FormSplitBill
           selectedFriend={selectedFriend}
@@ -432,6 +434,37 @@ Clicking the button again will trigger the handleShowAddFriend function, which u
           key={selectedFriend.id}
         />
       )}
+
+      {/* {selectedFriend && ...}: This is a conditional rendering statement that checks if the selectedFriend variable is truthy (not null, undefined, false, 0, or an empty string). If it is truthy, the following JSX code will be rendered; otherwise, it will be skipped.
+
+<FormSplitBill>: This represents the FormSplitBill component that is being rendered conditionally.
+
+selectedFriend={selectedFriend}: This prop selectedFriend is passed to the FormSplitBill component and contains the currently selected friend object. It is using the value of the selectedFriend state variable from the component's state. The FormSplitBill component will use this prop to display information about the selected friend.
+
+onSplitBill={handleSplitBill}: This prop onSplitBill is passed to the FormSplitBill component and represents an event handler function. It is using the handleSplitBill function from the component. The FormSplitBill component can call this function to handle the split bill action.
+
+key={selectedFriend.id}: This prop key is used for React's internal reconciliation mechanism. It helps React efficiently update and re-render components when changes occur. The key should be a unique identifier, and in this case, the id of the selectedFriend object is used as the key.
+
+Example:
+
+Let's assume the initial value of the selectedFriend state variable is null.
+
+Initially, the value of selectedFriend is null, so the conditional rendering statement evaluates to false, and the FormSplitBill component is not rendered.
+
+If the user selects a friend with the following object:
+const selectedFriend = {
+  id: 1,
+  name: "Alice",
+  balance: 10,
+};
+Now, the value of selectedFriend is truthy (not null), so the conditional rendering statement evaluates to true, and the FormSplitBill component is rendered.
+
+The FormSplitBill component is rendered with the selectedFriend prop set to the selected friend object, the onSplitBill prop set to the handleSplitBill function, and the key prop set to the id of the selected friend object.
+
+If the user deselects the friend, and the selectedFriend value becomes null again, the conditional rendering statement evaluates to false, and the FormSplitBill component will be unrendered or hidden.
+
+
+*/}
     {/* ------------------------------------------------------------------------------------------- */}
     </div>
   );
